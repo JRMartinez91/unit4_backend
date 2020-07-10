@@ -22,6 +22,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
+# User Faker for seed data
+gem 'faker'
+
 # Use AwesomePrint to make rails console easier to reate
 gem 'awesome_print'
 
