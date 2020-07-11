@@ -5,7 +5,7 @@ class CheckoutsController < ApplicationController
   def index
     @checkouts = Checkout.all
 
-    render json: @checkouts
+    render json: @checkouts.to_json(include: [:book, :guest])
   end
 
   # GET /checkouts/1

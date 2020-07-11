@@ -5,12 +5,12 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
 
-    render json: @books
+    render json: @books.to_json(include: [:guests, :checkouts])
   end
 
   # GET /books/1
   def show
-    render json: @book
+    render json: @book.to_json(include: [:guests, :checkouts])
   end
 
   # POST /books
@@ -37,6 +37,8 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
   end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

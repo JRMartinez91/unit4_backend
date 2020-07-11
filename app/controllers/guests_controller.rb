@@ -5,12 +5,12 @@ class GuestsController < ApplicationController
   def index
     @guests = Guest.all
 
-    render json: @guests
+    render json: @guests.to_json(include: :books)
   end
 
   # GET /guests/1
   def show
-    render json: @guest
+    render json: @guest.to_json(include: [:checkouts, :books])
   end
 
   # POST /guests
@@ -36,6 +36,11 @@ class GuestsController < ApplicationController
   # DELETE /guests/1
   def destroy
     @guest.destroy
+  end
+
+  # DELETE /removeguest/1
+  def destroy_guest_and_checkouts
+    
   end
 
   private
